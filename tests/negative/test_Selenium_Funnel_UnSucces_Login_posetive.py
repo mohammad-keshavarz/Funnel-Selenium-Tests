@@ -60,6 +60,8 @@ def test_negative_scenario(driver):
     time.sleep(2)
     print("\n")
 
+
+
     login_page.send_data_in_input_username_with_char_english_in_first_numumber()
     print("بررسی ورود شماره تلفن  همراه با کاراکتر انگلیسی  در ابندای شماره نلفن ")
     send_data_in_input_username_with_char_english_in_first_numumber = driver.find_elements(By.CSS_SELECTOR, ".input-error-message")
@@ -73,6 +75,8 @@ def test_negative_scenario(driver):
     actions.perform()
     time.sleep(2)
     print("\n")
+
+
 
     login_page.send_data_in_input_username_with_Entering_a_number_that_does_not_start_with_09()
     print("بررسی ورود شماره تلفن  همراه با 9 رقم ")
@@ -90,19 +94,14 @@ def test_negative_scenario(driver):
 
 
 
-
-
-
-
-
     login_page.send_data_in_input_username_with_null_number()
     print("بررسی عدم ورود شماره تلفن ")
     send_data_in_input_username_with_null_number = driver.find_elements(
-        By.CSS_SELECTOR, ".input-error-message")
+    By.CSS_SELECTOR, ".input-error-message")
     assert len(
         send_data_in_input_username_with_null_number) > 0, "Username error message not displayed"
     assert send_data_in_input_username_with_null_number[
-        0].is_displayed(), "Username error message is not visible"
+    0].is_displayed(), "Username error message is not visible"
     print("error message web site display  : ",
     send_data_in_input_username_with_null_number[0].text)
     username_input = driver.find_element(By.ID, 'username')
