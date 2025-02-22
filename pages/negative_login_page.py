@@ -15,9 +15,26 @@ class negative_login_page(BaseActionLocator):
     def send_data_in_input_username_with_char_english_in_first_numumber(self):
         self.send_keys((By.ID, 'username'), 'abc05912215')
 
+    def send_data_in_input_username_with_Entering_a_number_that_does_not_start_with_09(self):
+        self.send_keys((By.ID, 'username'), '035105912215')
+
+
+    def send_data_in_input_username_with_null_number(self):
+        self.send_keys((By.ID, 'username'), '')
+
+
+
+
+
+
+
+
+
+
+
+
     def send_data_in_input_password(self):
         self.send_keys((By.ID, 'password'), 'A123456789')
-
 
     def click_on_button_vorod_after_fill(self):
         self.click((By.CSS_SELECTOR, ".ps-4"))
