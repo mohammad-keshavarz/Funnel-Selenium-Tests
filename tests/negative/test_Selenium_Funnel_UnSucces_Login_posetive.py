@@ -99,7 +99,7 @@ def test_negative_scenario(driver):
     send_data_in_input_username_with_null_number = driver.find_elements(
     By.CSS_SELECTOR, ".input-error-message")
     assert len(
-        send_data_in_input_username_with_null_number) > 0, "Username error message not displayed"
+    send_data_in_input_username_with_null_number) > 0, "Username error message not displayed"
     assert send_data_in_input_username_with_null_number[
     0].is_displayed(), "Username error message is not visible"
     print("error message web site display  : ",
