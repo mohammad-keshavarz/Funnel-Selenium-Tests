@@ -37,6 +37,14 @@ class negative_login_page(BaseActionLocator):
     def send_data_in_input_username_with_sql_injection_queri_2(self):
         self.send_keys((By.ID, 'username'), "SELECT * FROM users WHERE phone_number = '' OR '1'='1';")
 
+
+
+   #########################################################################################
+    def send_data_in_input_password(self):
+        self.send_keys((By.ID, 'password'), 'A123456789')
+
+
+    ######################################################################################
     def send_data_in_input_password(self):
         self.send_keys((By.ID, 'password'), 'A123456789')
 

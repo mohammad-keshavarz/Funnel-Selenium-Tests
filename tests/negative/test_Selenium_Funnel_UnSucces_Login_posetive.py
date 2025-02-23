@@ -48,6 +48,9 @@ def test_negative_scenario(driver):
     print("بررسی ورود شماره تلفن همراه با ۹ کاراکتر")
 
     send_data_in_input_username_with_9_number = driver.find_elements(By.CSS_SELECTOR, ".input-error-message")
+    login_page.send_data_in_input_password()
+    login_page.click_on_button_vorod_after_fill()
+
 
     try:
         assert len(send_data_in_input_username_with_9_number) > 0
@@ -66,8 +69,11 @@ def test_negative_scenario(driver):
 
     try:
         username_input = driver.find_element(By.ID, 'username')
+        pasword_input = driver.find_element(By.ID,'password')
         actions = ActionChains(driver)
         actions.double_click(username_input).perform()
+        actions.send_keys(Keys.BACKSPACE * 15)
+        actions.double_click(pasword_input).perform()
         actions.send_keys(Keys.BACKSPACE * 15)
         actions.perform()
         time.sleep(1)
@@ -82,7 +88,8 @@ def test_negative_scenario(driver):
 
     send_data_in_input_username_with_char_english_in_first_numumber = driver.find_elements(By.CSS_SELECTOR,
                                                                                            ".input-error-message")
-
+    login_page.send_data_in_input_password()
+    login_page.click_on_button_vorod_after_fill()
     try:
         assert len(send_data_in_input_username_with_char_english_in_first_numumber) > 0
     except AssertionError:
@@ -101,8 +108,11 @@ def test_negative_scenario(driver):
 
     try:
         username_input = driver.find_element(By.ID, 'username')
+        pasword_input = driver.find_element(By.ID, 'password')
         actions = ActionChains(driver)
         actions.double_click(username_input).perform()
+        actions.send_keys(Keys.BACKSPACE * 15)
+        actions.double_click(pasword_input).perform()
         actions.send_keys(Keys.BACKSPACE * 15)
         actions.perform()
         time.sleep(1)
@@ -118,7 +128,8 @@ def test_negative_scenario(driver):
 
     send_data_in_input_username_withEntering_a_number_that_does_not_start_with_09 = driver.find_elements(
         By.CSS_SELECTOR, ".input-error-message")
-
+    login_page.send_data_in_input_password()
+    login_page.click_on_button_vorod_after_fill()
     try:
         assert len(send_data_in_input_username_withEntering_a_number_that_does_not_start_with_09) > 0
     except AssertionError:
@@ -137,8 +148,11 @@ def test_negative_scenario(driver):
 
     try:
         username_input = driver.find_element(By.ID, 'username')
+        pasword_input = driver.find_element(By.ID, 'password')
         actions = ActionChains(driver)
         actions.double_click(username_input).perform()
+        actions.send_keys(Keys.BACKSPACE * 15)
+        actions.double_click(pasword_input).perform()
         actions.send_keys(Keys.BACKSPACE * 15)
         actions.perform()
         time.sleep(1)
@@ -152,7 +166,8 @@ def test_negative_scenario(driver):
     print("بررسی عدم ورود شماره تلفن")
 
     send_data_in_input_username_with_null_number = driver.find_elements(By.CSS_SELECTOR, ".input-error-message")
-
+    login_page.send_data_in_input_password()
+    login_page.click_on_button_vorod_after_fill()
     try:
         assert len(send_data_in_input_username_with_null_number) > 0
     except AssertionError:
@@ -170,8 +185,11 @@ def test_negative_scenario(driver):
 
     try:
         username_input = driver.find_element(By.ID, 'username')
+        pasword_input = driver.find_element(By.ID, 'password')
         actions = ActionChains(driver)
         actions.double_click(username_input).perform()
+        actions.send_keys(Keys.BACKSPACE * 15)
+        actions.double_click(pasword_input).perform()
         actions.send_keys(Keys.BACKSPACE * 15)
         actions.perform()
         time.sleep(1)
@@ -186,7 +204,8 @@ def test_negative_scenario(driver):
 
     send_data_in_input_username_with_Enterin_the_phone_number_in_reverse = driver.find_elements(By.CSS_SELECTOR,
                                                                                                 ".input-error-message")
-
+    login_page.send_data_in_input_password()
+    login_page.click_on_button_vorod_after_fill()
     try:
         assert len(send_data_in_input_username_with_Enterin_the_phone_number_in_reverse) > 0
     except AssertionError:
@@ -205,8 +224,11 @@ def test_negative_scenario(driver):
 
     try:
         username_input = driver.find_element(By.ID, 'username')
+        pasword_input = driver.find_element(By.ID, 'password')
         actions = ActionChains(driver)
         actions.double_click(username_input).perform()
+        actions.send_keys(Keys.BACKSPACE * 15)
+        actions.double_click(pasword_input).perform()
         actions.send_keys(Keys.BACKSPACE * 15)
         actions.perform()
         time.sleep(1)
@@ -221,7 +243,8 @@ def test_negative_scenario(driver):
 
     send_data_in_input_username_with_Entering_a_phone_number_with_special_characters = driver.find_elements(
         By.CSS_SELECTOR, ".input-error-message")
-
+    login_page.send_data_in_input_password()
+    login_page.click_on_button_vorod_after_fill()
     try:
         assert len(send_data_in_input_username_with_Entering_a_phone_number_with_special_characters) > 0
     except AssertionError:
@@ -240,8 +263,11 @@ def test_negative_scenario(driver):
 
     try:
         username_input = driver.find_element(By.ID, 'username')
+        pasword_input = driver.find_element(By.ID, 'password')
         actions = ActionChains(driver)
         actions.double_click(username_input).perform()
+        actions.send_keys(Keys.BACKSPACE * 15)
+        actions.double_click(pasword_input).perform()
         actions.send_keys(Keys.BACKSPACE * 15)
         actions.perform()
         time.sleep(1)
@@ -255,7 +281,8 @@ def test_negative_scenario(driver):
     print("بررسی ورود شماره تلفن با ارقام 0")
 
     send_data_in_input_username_with_Entering_number_0 = driver.find_elements(By.CSS_SELECTOR, ".input-error-message")
-
+    login_page.send_data_in_input_password()
+    login_page.click_on_button_vorod_after_fill()
     try:
         assert len(send_data_in_input_username_with_Entering_number_0) > 0
     except AssertionError:
@@ -273,8 +300,11 @@ def test_negative_scenario(driver):
 
     try:
         username_input = driver.find_element(By.ID, 'username')
+        pasword_input = driver.find_element(By.ID, 'password')
         actions = ActionChains(driver)
         actions.double_click(username_input).perform()
+        actions.send_keys(Keys.BACKSPACE * 15)
+        actions.double_click(pasword_input).perform()
         actions.send_keys(Keys.BACKSPACE * 15)
         actions.perform()
         time.sleep(1)
@@ -289,7 +319,8 @@ def test_negative_scenario(driver):
 
     send_data_in_input_username_with_sql_injection_queri_1 = driver.find_elements(By.CSS_SELECTOR,
                                                                                   ".input-error-message")
-
+    login_page.send_data_in_input_password()
+    login_page.click_on_button_vorod_after_fill()
     try:
         assert len(send_data_in_input_username_with_sql_injection_queri_1) > 0
     except AssertionError:
@@ -307,8 +338,11 @@ def test_negative_scenario(driver):
 
     try:
         username_input = driver.find_element(By.ID, 'username')
+        pasword_input = driver.find_element(By.ID, 'password')
         actions = ActionChains(driver)
         actions.double_click(username_input).perform()
+        actions.send_keys(Keys.BACKSPACE * 15)
+        actions.double_click(pasword_input).perform()
         actions.send_keys(Keys.BACKSPACE * 15)
         actions.perform()
         time.sleep(1)
@@ -323,7 +357,8 @@ def test_negative_scenario(driver):
 
     send_data_in_input_username_with_sql_injection_queri_2 = driver.find_elements(By.CSS_SELECTOR,
                                                                                   ".input-error-message")
-
+    login_page.send_data_in_input_password()
+    login_page.click_on_button_vorod_after_fill()
     try:
         assert len(send_data_in_input_username_with_sql_injection_queri_2) > 0
     except AssertionError:
@@ -341,8 +376,11 @@ def test_negative_scenario(driver):
 
     try:
         username_input = driver.find_element(By.ID, 'username')
+        pasword_input = driver.find_element(By.ID, 'password')
         actions = ActionChains(driver)
         actions.double_click(username_input).perform()
+        actions.send_keys(Keys.BACKSPACE * 15)
+        actions.double_click(pasword_input).perform()
         actions.send_keys(Keys.BACKSPACE * 15)
         actions.perform()
         time.sleep(1)

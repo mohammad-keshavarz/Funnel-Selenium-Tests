@@ -19,7 +19,7 @@ def test_positive_scenario(driver):
     login_page.click_on_button_vorod_after_fill()
 
 
-    time.sleep(5)
+    time.sleep(50)
 
 
 
