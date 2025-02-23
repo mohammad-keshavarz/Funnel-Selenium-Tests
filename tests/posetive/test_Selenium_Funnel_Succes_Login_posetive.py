@@ -2,7 +2,6 @@ import time
 from base_action.base_action import BaseActionLocator
 from pages.positive_login_page import Positive_login_page
 from confdriver.conftest import driver
-action = BaseActionLocator(driver)
 
 
 def test_positive_scenario(driver):
@@ -21,6 +20,10 @@ def test_positive_scenario(driver):
 
 
     time.sleep(5)
+
+
+
+
 
     print("✅ تست مثبت با موفقیت انجام شد.")
 

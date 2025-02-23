@@ -1,5 +1,9 @@
+from selenium.webdriver import ActionChains, Keys
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+
+from confdriver.conftest import driver
+
 
 class BaseActionLocator:
     def __init__(self, driver):
@@ -16,3 +20,5 @@ class BaseActionLocator:
         element = self.wait.until(EC.visibility_of_element_located(locator))
         element.clear()  # پاک کردن مقدار قبلی (در صورت وجود)
         element.send_keys(value)
+
+
