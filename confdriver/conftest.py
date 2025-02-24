@@ -1,35 +1,21 @@
-
 import pytest
 from selenium import webdriver
-from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
-
-
 
 @pytest.fixture
 def driver():
-    # تنظیمات مرورگر
+    """ایجاد و مقداردهی WebDriver برای تست"""
     chrome_options = Options()
     chrome_options.add_argument("--start-maximized")
     chrome_options.add_argument("--disable-notifications")
-    chrome_options.add_argument("--disable-extensions")
-    chrome_options.add_argument("--disable-popup-blocking")
-    chrome_options.add_argument("--disable-gpu")
-    chrome_options.add_argument("--disable-animations")
-    chrome_options.add_argument("--disable-background-timer-throttling")
-    chrome_options.add_argument("--disable-renderer-backgrounding")
-    chrome_options.add_argument("--disable-backgrounding-occluded-windows")
 
-    # ایجاد سرویس و راه‌اندازی کروم
     chrome_driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
 
-    # آدرس سایت را بارگذاری می‌کنیم
-    chrome_driver.get("https://tabdeal.org/")
+    # باز کردن سایت موردنظر
+    chrome_driver.get("https://tabdeal.org/")  # ✅ این خط مشخص می‌کند که وب‌سایت چه باشد
 
-    # بازگشت driver برای استفاده در تست‌ها
-    yield chrome_driver
+    yield chrome_driver  # بازگرداندن WebDriver برای استفاده در تست‌ها
 
-    # بستن مرورگر فقط کروم باز شده توسط selenium
-    chrome_driver.quit()
-
+    chrome_driver.quit()  # بستن مرورگر پس از پایان تست

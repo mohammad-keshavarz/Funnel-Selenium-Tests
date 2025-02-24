@@ -1,22 +1,39 @@
 import time
-from base_action.base_action import BaseActionLocator
-from pages.positive_register_page import Positive_register_page
-from confdriver.conftest import driver
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.chrome.service import Service
+from selenium.webdriver.chrome.options import Options
+from webdriver_manager.chrome import ChromeDriverManager
 
 
-def test_positive_scenario(driver):
+def test_positive_scenario():
+    chrome_options = Options()
+    chrome_options.add_argument("--start-maximized")
+    chrome_options.add_argument("--disable-notifications")
 
+    driver = webdriver.Chrome(service=Service(ChromeDriverManager().install()), options=chrome_options)
 
-    """تست سناریوی مثبت برای باز کردن تب‌ها و انتخاب گزینه‌ها"""
-    print("dirver", driver)
-    # ایجاد نمونه‌ای از Positive_test
-    register_page = Positive_register_page(driver)
-    print("dirver", driver)
+    try:
+        driver.get("https://tabdeal.org/")
+        time.sleep(3)
 
-    register_page.click_on_button_register()
-    #register_page.send_data_in_input_username_register_click()
-    #register_page.send_data_in_input_username_register()
-    #register_page.send_data_in_input_password_register()
+        register_button = driver.find_element(By.XPATH, "//span[contains(.,'ثبت‌نام')]")
+        register_button.click()
+        time.sleep(1)
 
+        username_field = driver.find_element(By.CSS_SELECTOR, "[placeholder='09xxxxxxxx']")
+        time.sleep(2)
+        username_field.clear()
+        username_field.send_keys("09104652470")
+        time.sleep(2)
 
-    time.sleep(3)
+        password_field = driver.find_element(By.CSS_SELECTOR, "[placeholder='تعیین رمز عبور']")
+        password_field.send_keys("A123456789")
+
+        register_button = driver.find_element(By.XPATH, "//span[@class='flex items-center justify-center gap-x-2 w-full whitespace-nowrap py-2 ps-4 pe-4']")
+        register_button.click()
+
+        time.sleep(15)
+
+    finally:
+        driver.quit()

@@ -1,5 +1,4 @@
 import time
-from base_action.base_action import BaseActionLocator
 from pages.positive_login_page import Positive_login_page
 from confdriver.conftest import driver
 
@@ -19,7 +18,7 @@ def test_positive_scenario(driver):
     login_page.click_on_button_vorod_after_fill()
 
 
-    time.sleep(3)
+    time.sleep(25)
 
 
 
