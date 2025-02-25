@@ -33,7 +33,7 @@ def test_positive_scenario():
         register_button = driver.find_element(By.XPATH, "//span[@class='flex items-center justify-center gap-x-2 w-full whitespace-nowrap py-2 ps-4 pe-4']")
         register_button.click()
 
-        time.sleep(15)
+        time.sleep(25)
 
     finally:
         driver.quit()
