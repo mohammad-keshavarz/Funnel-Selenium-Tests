@@ -18,7 +18,7 @@ class PositiveRegisterPage(BaseActionLocator):
 
     def send_data_in_input_password_register(self):
         """ارسال رمز عبور"""
-        self.send_keys((By.CSS_SELECTOR, "[placeholder='تعیین رمز عبور']"), "A123456789")
+        self.send_keys((By.CSS_SELECTOR, "[placeholder='تعیین رمز عبور']"), "root..root007")
 
     def click_on_button_register_after_fill(self):
         """کلیک روی دکمه ثبت‌نام پس از پر کردن فیلدها"""

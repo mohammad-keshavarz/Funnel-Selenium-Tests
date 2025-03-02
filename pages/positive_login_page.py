@@ -13,7 +13,7 @@ class Positive_login_page(BaseActionLocator):
         self.send_keys((By.ID, 'username'), '09104652470')
 
     def send_data_in_input_password(self):
-        self.send_keys((By.ID, 'password'), 'A123456789')
+        self.send_keys((By.ID, 'password'), 'root..root007')
 
     def click_on_button_vorod_after_fill(self):
         self.click((By.CSS_SELECTOR, ".ps-4"))

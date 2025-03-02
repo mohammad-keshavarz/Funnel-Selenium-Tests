@@ -24,11 +24,11 @@ def test_positive_scenario():
         username_field = driver.find_element(By.CSS_SELECTOR, "[placeholder='09xxxxxxxx']")
         time.sleep(2)
         username_field.clear()
-        username_field.send_keys("09104652470")
+        username_field.send_keys("09104652471")
         time.sleep(2)
 
         password_field = driver.find_element(By.CSS_SELECTOR, "[placeholder='تعیین رمز عبور']")
-        password_field.send_keys("A123456789")
+        password_field.send_keys("root..root007")
 
         register_button = driver.find_element(By.XPATH, "//span[@class='flex items-center justify-center gap-x-2 w-full whitespace-nowrap py-2 ps-4 pe-4']")
         register_button.click()
