@@ -50,3 +50,7 @@ class negative_login_page(BaseActionLocator):
 
     def click_on_button_vorod_after_fill(self):
         self.click((By.CSS_SELECTOR, ".ps-4"))
+
+    def click_on_button_vorod_(self):
+        self.click((By.CSS_SELECTOR, "// span[contains(., 'ورود')]"))
+
