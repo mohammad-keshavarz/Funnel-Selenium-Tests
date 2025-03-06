@@ -392,7 +392,6 @@
 #     # login_page.send_data_in_input_password()
 #     # login_page.click_on_button_vorod_after_fill()
 
-
 import traceback
 import time
 from selenium.webdriver.common.by import By
