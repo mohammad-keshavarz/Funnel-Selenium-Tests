@@ -3,6 +3,7 @@ from base_action.base_action import BaseActionLocator
 
 
 class Positive_Register_Page(BaseActionLocator):
+
     def __init__(self, driver):
         super().__init__(driver)
 
