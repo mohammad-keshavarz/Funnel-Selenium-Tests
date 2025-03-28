@@ -10,6 +10,7 @@ def test_positive_scenario(driver):
     login_page.click_on_Button_Vorod()
     login_page.send_data_in_input_username()
     login_page.send_data_in_input_password()
+
     login_page.click_on_button_vorod_after_fill()
     time.sleep(25)
     print("✅ تست مثبت با موفقیت انجام شد.")

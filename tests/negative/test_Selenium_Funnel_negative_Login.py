@@ -398,161 +398,167 @@ import time
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver.common.action_chains import ActionChains
+from pages.negative.negative_login_page import negative_login_page
+from confdriver.conftest import driver
 
+def test_validate_username_with_9_digits(driver):
+    login_page = negative_login_page(driver)
 
-
-def test_validate_username_with_9_digits(driver, login_page,):
     try:
-        login_page.send_data_in_input_username_with_9_number()
-        print("بررسی ورود شماره تلفن همراه با ۹ کاراکتر")
-        error_messages = driver.find_elements(By.CSS_SELECTOR, ".input-error-message")
-        if len(error_messages) == 0:
-            print("خطا: لطفا تلفن همراه/آدرس ایمیل را به صورت صحیح وارد کنید")
-        elif not error_messages[0].is_displayed():
-            print("خطا: پیام خطای نام کاربری قابل مشاهده نیست یا عنصر یافت نشد")
-        else:
-            print("error message web site display  :", error_messages[0].text)
-    except Exception as e:
-        print("خطای غیرمنتظره: " + str(e))
-        print(traceback.format_exc())
+
+        login_page.click_on_Button_Vorod()
+        negative_login_page.send_data_in_input_username_with_9_number(driver)
+        time.sleep(3)
+        negative_login_page.send_data_in_input_password(driver)
+    #     print("بررسی ورود شماره تلفن همراه با ۹ کاراکتر")
+    #     error_messages = driver.find_elements(By.CSS_SELECTOR, ".input-error-message")
+    #     if len(error_messages) == 0:
+    #         print("خطا: لطفا تلفن همراه/آدرس ایمیل را به صورت صحیح وارد کنید")
+    #     elif not error_messages[0].is_displayed():
+    #         print("خطا: پیام خطای نام کاربری قابل مشاهده نیست یا عنصر یافت نشد")
+    #     else:
+    #         print("error message web site display  :", error_messages[0].text)
+    # except Exception as e:
+    #     print("خطای غیرمنتظره: " + str(e))
+    #     print(traceback.format_exc())
     finally:
         clear_input_fields(driver)
 
-def test_validate_username_with_char_english_in_first(driver, login_page):
-    try:
-        login_page.send_data_in_input_username_with_char_english_in_first_numumber()
-        print("بررسی ورود شماره تلفن همراه با کاراکتر انگلیسی در ابتدای شماره تلفن")
-        error_messages = driver.find_elements(By.CSS_SELECTOR, ".input-error-message")
-        if len(error_messages) == 0:
-            print("خطا: لطفا تلفن همراه/آدرس ایمیل را به صورت صحیح وارد کنید")
-        elif not error_messages[0].is_displayed():
-            print("خطا: پیام خطای نام کاربری قابل مشاهده نیست یا عنصر یافت نشد")
-        else:
-            print("error message web site display  :", error_messages[0].text)
-    except Exception as e:
-        print("خطای غیرمنتظره: " + str(e))
-        print(traceback.format_exc())
-    finally:
-        clear_input_fields(driver)
-
-def test_validate_username_with_invalid_start(driver, login_page):
-    try:
-        login_page.send_data_in_input_username_with_Entering_a_number_that_does_not_start_with_09()
-        print("بررسی ورود شماره تلفن همراه که با 09 شروع نمی‌شود")
-        error_messages = driver.find_elements(By.CSS_SELECTOR, ".input-error-message")
-        if len(error_messages) == 0:
-            print("خطا: لطفا تلفن همراه/آدرس ایمیل را به صورت صحیح وارد کنید")
-        elif not error_messages[0].is_displayed():
-            print("خطا: پیام خطای نام کاربری قابل مشاهده نیست یا عنصر یافت نشد")
-        else:
-            print("error message web site display  :", error_messages[0].text)
-    except Exception as e:
-        print("خطای غیرمنتظره: " + str(e))
-        print(traceback.format_exc())
-    finally:
-        clear_input_fields(driver)
-
-def test_validate_username_with_null_number(driver, login_page):
-    try:
-        login_page.send_data_in_input_username_with_null_number()
-        print("بررسی عدم ورود شماره تلفن")
-        error_messages = driver.find_elements(By.CSS_SELECTOR, ".input-error-message")
-        if len(error_messages) == 0:
-            print("خطا: لطفا تلفن همراه/آدرس ایمیل را به صورت صحیح وارد کنید")
-        elif not error_messages[0].is_displayed():
-            print("خطا: پیام خطای نام کاربری قابل مشاهده نیست یا عنصر یافت نشد")
-        else:
-            print("error message web site display  :", error_messages[0].text)
-    except Exception as e:
-        print("خطای غیرمنتظره: " + str(e))
-        print(traceback.format_exc())
-    finally:
-        clear_input_fields(driver)
-
-def test_validate_username_with_reverse_number(driver, login_page):
-    try:
-        login_page.send_data_in_input_username_with_Enterin_the_phone_number_in_reverse()
-        print("بررسی ورود شماره تلفن برعکس")
-        error_messages = driver.find_elements(By.CSS_SELECTOR, ".input-error-message")
-        if len(error_messages) == 0:
-            print("خطا: لطفا تلفن همراه/آدرس ایمیل را به صورت صحیح وارد کنید")
-        elif not error_messages[0].is_displayed():
-            print("خطا: پیام خطای نام کاربری قابل مشاهده نیست یا عنصر یافت نشد")
-        else:
-            print("error message web site display  :", error_messages[0].text)
-    except Exception as e:
-        print("خطای غیرمنتظره: " + str(e))
-        print(traceback.format_exc())
-    finally:
-        clear_input_fields(driver)
-
-def test_validate_username_with_special_chars(driver, login_page):
-    try:
-        login_page.send_data_in_input_username_with_Entering_a_phone_number_with_special_characters()
-        print("بررسی ورود کاراکترهای ویژه در تلفن همراه")
-        error_messages = driver.find_elements(By.CSS_SELECTOR, ".input-error-message")
-        if len(error_messages) == 0:
-            print("خطا: لطفا تلفن همراه/آدرس ایمیل را به صورت صحیح وارد کنید")
-        elif not error_messages[0].is_displayed():
-            print("خطا: پیام خطای نام کاربری قابل مشاهده نیست یا عنصر یافت نشد")
-        else:
-            print("error message web site display  :", error_messages[0].text)
-    except Exception as e:
-        print("خطای غیرمنتظره: " + str(e))
-        print(traceback.format_exc())
-    finally:
-        clear_input_fields(driver)
-
-def test_validate_username_with_all_zeros(driver, login_page):
-    try:
-        login_page.send_data_in_input_username_with_Entering_number_0()
-        print("بررسی ورود شماره تلفن با ارقام 0")
-        error_messages = driver.find_elements(By.CSS_SELECTOR, ".input-error-message")
-        if len(error_messages) == 0:
-            print("خطا: لطفا تلفن همراه/آدرس ایمیل را به صورت صحیح وارد کنید")
-        elif not error_messages[0].is_displayed():
-            print("خطا: پیام خطای نام کاربری قابل مشاهده نیست یا عنصر یافت نشد")
-        else:
-            print("error message web site display  :", error_messages[0].text)
-    except Exception as e:
-        print("خطای غیرمنتظره: " + str(e))
-        print(traceback.format_exc())
-    finally:
-        clear_input_fields(driver)
-
-def test_validate_username_with_sql_injection_1(driver, login_page):
-    try:
-        login_page.send_data_in_input_username_with_sql_injection_queri_1()
-        print("بررسی ورود کد SQL Injection شماره 1")
-        error_messages = driver.find_elements(By.CSS_SELECTOR, ".input-error-message")
-        if len(error_messages) == 0:
-            print("خطا: لطفا تلفن همراه/آدرس ایمیل را به صورت صحیح وارد کنید")
-        elif not error_messages[0].is_displayed():
-            print("خطا: پیام خطای نام کاربری قابل مشاهده نیست یا عنصر یافت نشد")
-        else:
-            print("error message web site display  :", error_messages[0].text)
-    except Exception as e:
-        print("خطای غیرمنتظره: " + str(e))
-        print(traceback.format_exc())
-    finally:
-        clear_input_fields(driver)
-
-def test_validate_username_with_sql_injection_2(driver, login_page):
-    try:
-        login_page.send_data_in_input_username_with_sql_injection_queri_2()
-        print("بررسی ورود کد SQL Injection شماره 2")
-        error_messages = driver.find_elements(By.CSS_SELECTOR, ".input-error-message")
-        if len(error_messages) == 0:
-            print("خطا: لطفا تلفن همراه/آدرس ایمیل را به صورت صحیح وارد کنید")
-        elif not error_messages[0].is_displayed():
-            print("خطا: پیام خطای نام کاربری قابل مشاهده نیست یا عنصر یافت نشد")
-        else:
-            print("error message web site display  :", error_messages[0].text)
-    except Exception as e:
-        print("خطای غیرمنتظره: " + str(e))
-        print(traceback.format_exc())
-    finally:
-        clear_input_fields(driver)
+# def test_validate_username_with_char_english_in_first(driver, login_page):
+#     try:
+#         login_page.send_data_in_input_username_with_char_english_in_first_numumber()
+#         print("بررسی ورود شماره تلفن همراه با کاراکتر انگلیسی در ابتدای شماره تلفن")
+#         error_messages = driver.find_elements(By.CSS_SELECTOR, ".input-error-message")
+#         if len(error_messages) == 0:
+#             print("خطا: لطفا تلفن همراه/آدرس ایمیل را به صورت صحیح وارد کنید")
+#         elif not error_messages[0].is_displayed():
+#             print("خطا: پیام خطای نام کاربری قابل مشاهده نیست یا عنصر یافت نشد")
+#         else:
+#             print("error message web site display  :", error_messages[0].text)
+#     except Exception as e:
+#         print("خطای غیرمنتظره: " + str(e))
+#         print(traceback.format_exc())
+#     finally:
+#         clear_input_fields(driver)
+#
+# def test_validate_username_with_invalid_start(driver, login_page):
+#     try:
+#         login_page.send_data_in_input_username_with_Entering_a_number_that_does_not_start_with_09()
+#         print("بررسی ورود شماره تلفن همراه که با 09 شروع نمی‌شود")
+#         error_messages = driver.find_elements(By.CSS_SELECTOR, ".input-error-message")
+#         if len(error_messages) == 0:
+#             print("خطا: لطفا تلفن همراه/آدرس ایمیل را به صورت صحیح وارد کنید")
+#         elif not error_messages[0].is_displayed():
+#             print("خطا: پیام خطای نام کاربری قابل مشاهده نیست یا عنصر یافت نشد")
+#         else:
+#             print("error message web site display  :", error_messages[0].text)
+#     except Exception as e:
+#         print("خطای غیرمنتظره: " + str(e))
+#         print(traceback.format_exc())
+#     finally:
+#         clear_input_fields(driver)
+#
+# def test_validate_username_with_null_number(driver, login_page):
+#     try:
+#         login_page.send_data_in_input_username_with_null_number()
+#         print("بررسی عدم ورود شماره تلفن")
+#         error_messages = driver.find_elements(By.CSS_SELECTOR, ".input-error-message")
+#         if len(error_messages) == 0:
+#             print("خطا: لطفا تلفن همراه/آدرس ایمیل را به صورت صحیح وارد کنید")
+#         elif not error_messages[0].is_displayed():
+#             print("خطا: پیام خطای نام کاربری قابل مشاهده نیست یا عنصر یافت نشد")
+#         else:
+#             print("error message web site display  :", error_messages[0].text)
+#     except Exception as e:
+#         print("خطای غیرمنتظره: " + str(e))
+#         print(traceback.format_exc())
+#     finally:
+#         clear_input_fields(driver)
+#
+# def test_validate_username_with_reverse_number(driver, login_page):
+#     try:
+#         login_page.send_data_in_input_username_with_Enterin_the_phone_number_in_reverse()
+#         print("بررسی ورود شماره تلفن برعکس")
+#         error_messages = driver.find_elements(By.CSS_SELECTOR, ".input-error-message")
+#         if len(error_messages) == 0:
+#             print("خطا: لطفا تلفن همراه/آدرس ایمیل را به صورت صحیح وارد کنید")
+#         elif not error_messages[0].is_displayed():
+#             print("خطا: پیام خطای نام کاربری قابل مشاهده نیست یا عنصر یافت نشد")
+#         else:
+#             print("error message web site display  :", error_messages[0].text)
+#     except Exception as e:
+#         print("خطای غیرمنتظره: " + str(e))
+#         print(traceback.format_exc())
+#     finally:
+#         clear_input_fields(driver)
+#
+# def test_validate_username_with_special_chars(driver, login_page):
+#     try:
+#         login_page.send_data_in_input_username_with_Entering_a_phone_number_with_special_characters()
+#         print("بررسی ورود کاراکترهای ویژه در تلفن همراه")
+#         error_messages = driver.find_elements(By.CSS_SELECTOR, ".input-error-message")
+#         if len(error_messages) == 0:
+#             print("خطا: لطفا تلفن همراه/آدرس ایمیل را به صورت صحیح وارد کنید")
+#         elif not error_messages[0].is_displayed():
+#             print("خطا: پیام خطای نام کاربری قابل مشاهده نیست یا عنصر یافت نشد")
+#         else:
+#             print("error message web site display  :", error_messages[0].text)
+#     except Exception as e:
+#         print("خطای غیرمنتظره: " + str(e))
+#         print(traceback.format_exc())
+#     finally:
+#         clear_input_fields(driver)
+#
+# def test_validate_username_with_all_zeros(driver, login_page):
+#     try:
+#         login_page.send_data_in_input_username_with_Entering_number_0()
+#         print("بررسی ورود شماره تلفن با ارقام 0")
+#         error_messages = driver.find_elements(By.CSS_SELECTOR, ".input-error-message")
+#         if len(error_messages) == 0:
+#             print("خطا: لطفا تلفن همراه/آدرس ایمیل را به صورت صحیح وارد کنید")
+#         elif not error_messages[0].is_displayed():
+#             print("خطا: پیام خطای نام کاربری قابل مشاهده نیست یا عنصر یافت نشد")
+#         else:
+#             print("error message web site display  :", error_messages[0].text)
+#     except Exception as e:
+#         print("خطای غیرمنتظره: " + str(e))
+#         print(traceback.format_exc())
+#     finally:
+#         clear_input_fields(driver)
+#
+# def test_validate_username_with_sql_injection_1(driver, login_page):
+#     try:
+#         login_page.send_data_in_input_username_with_sql_injection_queri_1()
+#         print("بررسی ورود کد SQL Injection شماره 1")
+#         error_messages = driver.find_elements(By.CSS_SELECTOR, ".input-error-message")
+#         if len(error_messages) == 0:
+#             print("خطا: لطفا تلفن همراه/آدرس ایمیل را به صورت صحیح وارد کنید")
+#         elif not error_messages[0].is_displayed():
+#             print("خطا: پیام خطای نام کاربری قابل مشاهده نیست یا عنصر یافت نشد")
+#         else:
+#             print("error message web site display  :", error_messages[0].text)
+#     except Exception as e:
+#         print("خطای غیرمنتظره: " + str(e))
+#         print(traceback.format_exc())
+#     finally:
+#         clear_input_fields(driver)
+#
+# def test_validate_username_with_sql_injection_2(driver, login_page):
+#     try:
+#         login_page.send_data_in_input_username_with_sql_injection_queri_2()
+#         print("بررسی ورود کد SQL Injection شماره 2")
+#         error_messages = driver.find_elements(By.CSS_SELECTOR, ".input-error-message")
+#         if len(error_messages) == 0:
+#             print("خطا: لطفا تلفن همراه/آدرس ایمیل را به صورت صحیح وارد کنید")
+#         elif not error_messages[0].is_displayed():
+#             print("خطا: پیام خطای نام کاربری قابل مشاهده نیست یا عنصر یافت نشد")
+#         else:
+#             print("error message web site display  :", error_messages[0].text)
+#     except Exception as e:
+#         print("خطای غیرمنتظره: " + str(e))
+#         print(traceback.format_exc())
+#     finally:
+#         clear_input_fields(driver)
 
 def clear_input_fields(driver):
     try:
